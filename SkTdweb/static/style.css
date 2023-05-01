@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap');
+body {
+  font-family: "Fira Code", monospace;
+  margin: 0px; padding: 0px;
+  height: 12002px;
+  background: rgb(235,105,90);
+  background: linear-gradient(315deg, rgba(235,105,90,1) 0%, rgba(233,132,98,1) 30%, rgba(99,112,185,1) 72%, rgba(161,100,153,1) 100%);
+  
+  overflow-x: hidden;
+}
+
+#controlpanel{
+  display: block;
+  position: absolute;
+  z-index: 1;
+  left: 10px;
+  top: 10px;
+  color: rgb(1, 139, 12);
+
+  font-size: 14px;
+}
+
+#LagDealer{
+  display: block;
+  position: absolute;
+  z-index: 2;
+  left: 10px;
+  top: 100px;
+  color: rgb(255, 0, 0);
+
+  font-size: 14px;
+}
+
+p {
+  display: inline;
+}
+
+#screensinformation {
+  display: none;
+}
+
+#intr {
+  width: auto; height: auto; display: block;
+  background: rgb(2,0,36);
+  background: linear-gradient(315deg, rgba(2,0,36,1) 0%, rgba(116,9,121,0.4) 35%, rgba(0,212,255,0.4) 100%);
+  z-index: 12;
+  position: absolute;
+  border-radius: 50px;
+}
+#hdbanner{
+background: rgb(235,105,90);
+background: linear-gradient(315deg, rgba(235,105,90,1) 0%, rgba(233,132,98,1) 30%, rgba(99,112,185,1) 64%, rgba(161,100,153,1) 100%);
+top: 0px;
+left: 0px;
+position: fixed;
+width: 100%;
+height: 8px;
+z-index: 99999;
+transition-duration: 2s;
+}
+
+#gallery canvas{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 32;
+}
+
+#gallery{
+  position: fixed;
+  left: 0;
+  width: 100%;
+}
+#thj{
+  z-index: -9;
+  position: absolute;
+  display: flexbox;
+  left: 0;
+  align-items: center;
+  top:1120px;
+  height: 12px;
+  background-color: whitesmoke;
+  }
+
+  #thj p{
+    font-family: 'Sedgwick Ave', cursive;
+    z-index: -7;
+    font-size: 120px;
+    position: relative;
+    display: none;
+    align-self: center;
+    text-align: center;
+    left: 0px;
+    right: 0px;
+    top:-190px;
+    height: 12px;
+    color: rgba(255, 143, 32, 0.621);
+    }
+
+    #SkAiB{
+      position: absolute;
+      color: rgb(175, 255, 252);
+      font-size: 64px;
+      top:1260px;
+      right: 0px;
+      left: 40px;
+      text-align: center;
+      height: 12px;
+      text-shadow: 2px 2px 12px #ffffff;
+  }
+
+  #into{
+    color: whitesmoke;
+    font-size: 72px;
+  }
+
+  #sktdf{
+    position: absolute;
+    bottom: 90px;
+    text-align: left;
+    left: 64px;
+  }
+
+  #boundaries{
+    position: fixed;
+    height: 100vh;
+  }
+
+  #lineBottom{
+    position: absolute;
+    bottom: 130px;
+    width: 300px;
+    left: 80px;
+    height: 8px;
+    background-color: white;
+  }
+
+  
+  #secondBorder{
+    position: fixed;
+    background: rgb(0, 0, 0);
+    transition-duration: 1s;
+  }
+
+  
+  #secondBorderBorder{
+    align-self: center;
+    top:50vh; left: 50vw;
+    position: fixed;
+    opacity: 0;
+    border:5px solid whitesmoke;
+    transition-duration: 1s;
+    height: 0vh;width: 0vw;
+  }
+
+  #secEffect{
+    background: rgb(2,0,36);
+    background: linear-gradient(30deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 64%, rgba(0,212,255,0) 100%);
+    opacity: 0;
+    position: fixed;
+    transition-duration: 750ms;
+    top: 0; right: 0; left: 0; bottom: 0;
+  }
+
+  .ctxMains{
+    position: fixed;
+    opacity: 0;
+    transition-duration: 1s;
+    top: 12vh; left: 8vw; right: 42vw;
+    color: whitesmoke;
+    font-size: 48px;
+  }
+
+  .ctxMains p{
+    display: block;
+    font-size: 16px; margin: 0px; padding: 0;
+    line-height: 2.5;
+    transition-duration: 100ms;
+  }
+
+  .ctxMains ul{
+    display: block;
+    font-size: 16px; margin: 0px; padding: 0;
+    line-height: 2.5;
+    transition-duration: 100ms;
+
+    list-style: none;
+  padding-left: 0;
+  }
+
+.ctxMains ul li:before {
+  content: ">";
+  margin-right: 5px;
+}
+
+  .border-rectangle {
+    display: inline-block;
+    position: fixed;
+    top:12vh;
+    right: 6vw;
+    width: 28vw; 
+    height: 78vh;
+    border: 4px solid rgb(126, 253, 255);
+    opacity: 0.6;
+    transform: rotate(8deg);
+  }
+
+  .border-rectangle2 {
+    display: inline-block;
+    position: fixed;
+    top:12vh;
+    right: 6vw;
+    width: 28vw; 
+    height: 78vh;
+    border: 4px solid rgb(255, 255, 255);
+    opacity: 0.6;
+    font-size: 8px;
+  }
+
+  .glass {
+    z-index: 16;
+    position: fixed;
+    top:12.8vh;
+    right: 6vw;
+    width: 28vw; 
+    height: 78vh;
+    background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%,rgba(255,255,255,0) 50%,rgba(255,255,255,0.4) 100%);
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    transition-duration: 1s;
+  }
+  
+  .glass::before {
+    content: "";
+    position: fixed;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    background: inherit;
+    transform: rotate(45deg);
+    filter: blur(50px);
+  }
+  
+  .glass:hover{
+    top:11vh;
+    right: 6vw;
+  }
