@@ -1,0 +1,78 @@
+<head>
+    <link href = 'static/style.css' rel = 'stylesheet' type = 'text/css'>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//unpkg.com/three"></script>
+    <script src="//unpkg.com/three-globe"></script>
+    <!--<script src="../../dist/three-globe.js"></script>-->
+  </head>
+  
+  <body>
+    <div id="globeViz"></div>
+  
+    <script type="importmap">{ "imports": { "three": "https://unpkg.com/three/build/three.module.js" }}</script>
+    <script type="module">
+      import { TrackballControls } from '//unpkg.com/three/examples/jsm/controls/TrackballControls.js';
+      Object.assign(THREE , { TrackballControls });
+  
+      // Gen random data
+      const N = 32;
+  
+      const arcsData = [...Array(N).keys()].map(() => ({
+        startLat: (Math.random() - 0.5) * 180,
+        startLng: (Math.random() - 0.5) * 360,
+        endLat: (Math.random() - 0.5) * 180,
+        endLng: (Math.random() - 0.5) * 360,
+        color: String(`rgb(${Math.random()*255},${Math.random()*55+200},${Math.random()*155+100})`)
+      }));
+  
+      const Globe = new ThreeGlobe()
+        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-day.jpg')
+        .arcsData(arcsData)
+        .arcColor('color')
+        .arcDashLength(0.3)
+        .arcDashGap(4)
+        .arcDashInitialGap(() => Math.random() * 5)
+        .arcDashAnimateTime(1000);
+  
+      // Setup renderer
+      const renderer = new THREE.WebGLRenderer({ alpha: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.getElementById('globeViz').appendChild(renderer.domElement);
+  
+      // Setup scene
+      const scene = new THREE.Scene();
+      scene.add(Globe);
+      scene.add(new THREE.AmbientLight(0xcccccc));
+      scene.add(new THREE.DirectionalLight(0xffffff, 2.6));
+  
+      // Setup camera
+      const camera = new THREE.PerspectiveCamera();
+      camera.aspect = window.innerWidth/window.innerHeight;
+      camera.updateProjectionMatrix();
+      camera.position.z = 500;
+  
+      // Add camera controls
+      const tbControls = new THREE.TrackballControls(camera, renderer.domElement);
+      tbControls.minDistance = 101;
+      tbControls.rotateSpeed = 5;
+      tbControls.zoomSpeed = 0.1;
+  
+      // Kick-off renderer
+      (function animate() { // IIFE
+        // Frame cycle
+        tbControls.update();
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+      })();
+    </script>
+    <svg width="1172" height="928" viewBox="0 0 1172 928" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute top-0 h-full right-0 -z-10">
+      <path d="M1172 928L0 928L451.967 6.29472e-05L1172 0L1172 928Z" fill="url(#paint0_linear_37_470)"/>
+      <defs>
+      <linearGradient id="paint0_linear_37_470" x1="1098" y1="0.00010907" x2="-169.502" y2="876.504" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A717AA"/>
+      <stop offset="1" stop-color="#0094FF"/>
+      </linearGradient>
+      </defs>
+      </svg>
+      
+  </body>
